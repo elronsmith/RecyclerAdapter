@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">RecyclerAdapter</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="description_easy">Обычный список с OnClickListener</string>
+    <string name="description_medium">Обычный список с OnClickListener, OnLongItemClickListener и добавление/удаление элемента</string>
+    <string name="description_hard">Список из одного Observable и 2 разных ViewHolder</string>
+    <string name="description_nightmare">Разные ViewHolder с разными кнопками внутри, OnLongClickListener, удалить/добавить элемент</string>
+    <string-array name="names">
+        <item>Rebekah Howe</item>
+        <item>Clement Nguyen</item>
+        <item>Ivie Morley</item>
+        <item>Hassan Stone</item>
+        <item>Awais Traynor</item>
+        <item>Braydon Gray</item>
+        <item>Frida Alvarado</item>
+        <item>Kayleigh Barnes</item>
+        <item>Herbert Duffy</item>
+        <item>Rebekka Golden</item>
+        <item>Anne-Marie Mellor</item>
+        <item>Ralph Cordova</item>
+        <item>Samiha Lambert</item>
+        <item>Justin Rogers</item>
+        <item>Keane Wardle</item>
+        <item>Arnas Stewart</item>
+    </string-array>
 </resources>
