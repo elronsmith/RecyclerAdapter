@@ -22,4 +22,9 @@
         <item>Keane Wardle</item>
         <item>Arnas Stewart</item>
     </string-array>
+    <string-array name="menu_medium">
+        <item>Добавить</item>
+        <item>Удалить</item>
+    </string-array>
+
 </resources>

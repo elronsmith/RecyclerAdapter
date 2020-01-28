@@ -10,7 +10,7 @@ import ru.elron.examplerecycleradapter.view.OnItemClickViewHolderCallback
 import ru.elron.examplerecycleradapter.view.RecyclerAdapter
 
 class EasyViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
-    lateinit var adapter: RecyclerAdapter
+    lateinit var adapter: RecyclerAdapter<EasyObservable>
 
     constructor(application: Application) : super(application) {
         val names = application.resources.getStringArray(R.array.names)
