@@ -53,7 +53,7 @@ abstract class ARecyclerAdapter : RecyclerView.Adapter<ViewHolder<*>>() {
 }
 
 open class RecyclerAdapter<T: AObservable>(
-    public var observableList: ArrayList<T>,
+    public var observableList: ArrayList<T> = ArrayList<T>(),
     public var holderBuilderArray: SparseArrayCompat<ViewHolderBuilder> = SparseArrayCompat<ViewHolderBuilder>()) : ARecyclerAdapter() {
 
     override fun getItemViewType(position: Int): Int = observableList[position].layoutId

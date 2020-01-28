@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import ru.elron.examplerecycleradapter.R
-import ru.elron.examplerecycleradapter.databinding.ItemEasyBinding
-import ru.elron.examplerecycleradapter.view.*
+import ru.elron.examplerecycleradapter.databinding.ItemMediumBinding
+import ru.elron.examplerecycleradapter.view.AObservable
+import ru.elron.examplerecycleradapter.view.LongClickableViewHolder
+import ru.elron.examplerecycleradapter.view.OnLongItemClickViewHolderCallback
+import ru.elron.examplerecycleradapter.view.ViewHolderBuilder
 
 class MediumObservable(public var name: String) : AObservable(ViewHolder.ID)
 
@@ -13,14 +16,14 @@ fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: O
     builderList.put(ViewHolder.ID, object: ViewHolderBuilder{
         override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
             return ViewHolder(
-                ItemEasyBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                ItemMediumBinding.inflate(LayoutInflater.from(parent.context), parent, false),
                 callback
             )
         }
     })
 }
 
-class ViewHolder(val binding: ItemEasyBinding, callback: OnLongItemClickViewHolderCallback) : LongClickableViewHolder(binding.root, callback) {
+class ViewHolder(val binding: ItemMediumBinding, callback: OnLongItemClickViewHolderCallback) : LongClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_medium
     }

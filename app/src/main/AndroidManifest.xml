@@ -25,6 +25,8 @@
             android:name=".ui.easy.EasyActivity"/>
         <activity
             android:name=".ui.medium.MediumActivity"/>
+        <activity
+            android:name=".ui.hard.HardActivity"/>
 
     </application>
 

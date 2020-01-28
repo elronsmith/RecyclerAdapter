@@ -22,6 +22,18 @@
         <item>Keane Wardle</item>
         <item>Arnas Stewart</item>
     </string-array>
+    <string-array name="messages">
+        <item>glitter</item>
+        <item>wake</item>
+        <item>duplicate</item>
+        <item>contamination</item>
+        <item>awful</item>
+        <item>butcher</item>
+        <item>bark</item>
+        <item>goldfish</item>
+        <item>buzz</item>
+        <item>ephemeral</item>
+    </string-array>
     <string-array name="menu_medium">
         <item>Добавить</item>
         <item>Удалить</item>
