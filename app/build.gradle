@@ -51,13 +51,12 @@ dependencies {
     implementation rootProject.ext.deps.androidx.appcompat
     implementation rootProject.ext.deps.androidx.constraintLayout
     implementation rootProject.ext.deps.androidx.recyclerView
+    implementation rootProject.ext.deps.androidx.cardview
     implementation rootProject.ext.deps.material
     implementation rootProject.ext.deps.arch.extensions
     implementation rootProject.ext.deps.arch.java8
     // kotlin
     implementation rootProject.ext.deps.kotlinJdk7
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt rootProject.ext.deps.arch.compiler
 
     // tests

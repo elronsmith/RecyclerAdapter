@@ -27,7 +27,8 @@
             android:name=".ui.medium.MediumActivity"/>
         <activity
             android:name=".ui.hard.HardActivity"/>
+        <activity
+            android:name=".ui.nightmare.NightmareActivity"/>
 
     </application>
-
 </manifest>
