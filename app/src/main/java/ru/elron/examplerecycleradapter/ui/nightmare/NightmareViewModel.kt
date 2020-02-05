@@ -9,7 +9,7 @@ import ru.elron.examplerecycleradapter.view.AObservable
 import ru.elron.examplerecycleradapter.view.OnItemClickViewHolderCallback
 import ru.elron.examplerecycleradapter.view.RecyclerAdapter
 
-class HardViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
+class NightmareViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
     val adapter = RecyclerAdapter<NightmareObservable>()
 
     constructor(application: Application) : super(application) {
