@@ -25,31 +25,20 @@ class HardObservable : AObservable {
     }
 }
 
-fun addMessageViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
-    builderList.put(MessageViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return MessageViewHolder(
-                ItemHardMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
-fun addSystemMessageViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: ViewHolderCallback) {
-    builderList.put(SystemMessageViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return SystemMessageViewHolder(
-                ItemHardMessageSystemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
 class MessageViewHolder(val binding: ItemHardMessageBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_hard_message
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return MessageViewHolder(
+                        ItemHardMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {
@@ -62,6 +51,17 @@ class MessageViewHolder(val binding: ItemHardMessageBinding, callback: OnItemCli
 class SystemMessageViewHolder(val binding: ItemHardMessageSystemBinding, callback: ViewHolderCallback) : ViewHolder<ViewHolderCallback>(binding.root, callback) {
     companion object {
         val ID = R.layout.item_hard_message_system
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: ViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return SystemMessageViewHolder(
+                        ItemHardMessageSystemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {

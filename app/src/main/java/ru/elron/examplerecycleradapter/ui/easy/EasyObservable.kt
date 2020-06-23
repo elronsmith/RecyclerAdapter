@@ -10,20 +10,20 @@ import ru.elron.examplerecycleradapter.view.ClickableViewHolder
 import ru.elron.examplerecycleradapter.view.OnItemClickViewHolderCallback
 import ru.elron.examplerecycleradapter.view.ViewHolderBuilder
 
-class EasyObservable(public var name: String) : AObservable(ViewHolder.ID)
+class EasyObservable(public var name: String) : AObservable(EasyViewHolder.ID)
 
-fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
-    builderList.put(ViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return ViewHolder(ItemEasyBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback)
-        }
-    })
-}
-
-class ViewHolder(val binding: ItemEasyBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
+class EasyViewHolder(val binding: ItemEasyBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_easy
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return EasyViewHolder(ItemEasyBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback)
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {

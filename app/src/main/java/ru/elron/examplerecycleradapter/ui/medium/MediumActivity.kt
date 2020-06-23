@@ -1,18 +1,20 @@
 package ru.elron.examplerecycleradapter.ui.medium
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.elron.examplerecycleradapter.R
 import ru.elron.examplerecycleradapter.databinding.ActivityMediumBinding
 
 class MediumActivity : AppCompatActivity() {
     lateinit var binding: ActivityMediumBinding
-    lateinit var viewModel: MediumViewModel
+    val viewModel: MediumViewModel by viewModels {
+        MediumViewModelFactory(application, this)
+    }
 
     val onLongClickObserver = object : Observer<Pair<Int, MediumObservable>> {
         override fun onChanged(p: Pair<Int, MediumObservable>?) {
@@ -32,7 +34,6 @@ class MediumActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_medium)
-        viewModel = ViewModelProvider(this).get(MediumViewModel::class.java)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = viewModel.adapter

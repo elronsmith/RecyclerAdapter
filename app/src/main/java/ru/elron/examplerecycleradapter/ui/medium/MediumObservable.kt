@@ -10,22 +10,22 @@ import ru.elron.examplerecycleradapter.view.LongClickableViewHolder
 import ru.elron.examplerecycleradapter.view.OnLongItemClickViewHolderCallback
 import ru.elron.examplerecycleradapter.view.ViewHolderBuilder
 
-class MediumObservable(public var name: String) : AObservable(ViewHolder.ID)
+class MediumObservable(public var name: String) : AObservable(MediumOViewHolder.ID)
 
-fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnLongItemClickViewHolderCallback) {
-    builderList.put(ViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return ViewHolder(
-                ItemMediumBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
-class ViewHolder(val binding: ItemMediumBinding, callback: OnLongItemClickViewHolderCallback) : LongClickableViewHolder(binding.root, callback) {
+class MediumOViewHolder(val binding: ItemMediumBinding, callback: OnLongItemClickViewHolderCallback) : LongClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_medium
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnLongItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return MediumOViewHolder(
+                        ItemMediumBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {
@@ -34,5 +34,4 @@ class ViewHolder(val binding: ItemMediumBinding, callback: OnLongItemClickViewHo
         binding.root.setOnClickListener(this)
         binding.root.setOnLongClickListener(this)
     }
-
 }

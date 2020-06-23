@@ -1,10 +1,11 @@
 package ru.elron.examplerecycleradapter.ui.medium
 
 import android.app.Application
+import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
+import androidx.savedstate.SavedStateRegistryOwner
 import ru.elron.examplerecycleradapter.R
 import ru.elron.examplerecycleradapter.view.AObservable
 import ru.elron.examplerecycleradapter.view.OnLongItemClickViewHolderCallback
@@ -14,11 +15,11 @@ import kotlin.collections.ArrayList
 
 class MediumViewModel : AndroidViewModel, OnLongItemClickViewHolderCallback{
     lateinit var nameArray: Array<String>
-    lateinit var adapter: RecyclerAdapter<MediumObservable>
+    val adapter: RecyclerAdapter<MediumObservable>
     val onLongClickLiveData = MutableLiveData<Pair<Int, MediumObservable>>()
     val random = Random()
 
-    constructor(application: Application) : super(application) {
+    constructor(application: Application, state: SavedStateHandle) : super(application) {
         nameArray = application.resources.getStringArray(R.array.names)
         val list = ArrayList<MediumObservable>()
 
@@ -26,7 +27,7 @@ class MediumViewModel : AndroidViewModel, OnLongItemClickViewHolderCallback{
             list.add(MediumObservable(nameArray[i]))
 
         adapter = RecyclerAdapter(list)
-        addViewHolder(adapter.holderBuilderArray, this)
+        MediumOViewHolder.addViewHolder(adapter.holderBuilderArray, this)
     }
 
     override fun onItemClick(v: View?, observable: AObservable, position: Int) {
@@ -51,5 +52,20 @@ class MediumViewModel : AndroidViewModel, OnLongItemClickViewHolderCallback{
         adapter.observableList.removeAt(position)
         adapter.notifyItemRemoved(position)
         Toast.makeText(getApplication(), "Удалено!", Toast.LENGTH_SHORT).show()
+    }
+}
+
+class MediumViewModelFactory(
+    private val application: Application,
+    private val owner: SavedStateRegistryOwner,
+    private val defaultArgs: Bundle? = null
+) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel?> create(
+        key: String,
+        modelClass: Class<T>,
+        handle: SavedStateHandle
+    ): T {
+        return MediumViewModel(application, handle) as T
     }
 }

@@ -4,8 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import ru.elron.examplerecycleradapter.R
-import ru.elron.examplerecycleradapter.databinding.*
-import ru.elron.examplerecycleradapter.view.*
+import ru.elron.examplerecycleradapter.databinding.ItemNightmareAdBinding
+import ru.elron.examplerecycleradapter.databinding.ItemNightmareFriendsBinding
+import ru.elron.examplerecycleradapter.databinding.ItemNightmareItemBinding
+import ru.elron.examplerecycleradapter.databinding.ItemNightmareNewBinding
+import ru.elron.examplerecycleradapter.view.AObservable
+import ru.elron.examplerecycleradapter.view.ClickableViewHolder
+import ru.elron.examplerecycleradapter.view.OnItemClickViewHolderCallback
+import ru.elron.examplerecycleradapter.view.ViewHolderBuilder
 
 class NightmareObservable(id: Int) : AObservable(id) {
     companion object {
@@ -16,53 +22,20 @@ class NightmareObservable(id: Int) : AObservable(id) {
     }
 }
 
-fun addNewViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
-    builderList.put(NewViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return NewViewHolder(
-                ItemNightmareNewBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
-fun addFriendsViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
-    builderList.put(FriendsViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return FriendsViewHolder(
-                ItemNightmareFriendsBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
-fun addItemViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
-    builderList.put(ItemViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return ItemViewHolder(
-                ItemNightmareItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
-fun addAdViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
-    builderList.put(AdViewHolder.ID, object: ViewHolderBuilder{
-        override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
-            return AdViewHolder(
-                ItemNightmareAdBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-                callback
-            )
-        }
-    })
-}
-
 class NewViewHolder(val binding: ItemNightmareNewBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_nightmare_new
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return NewViewHolder(
+                        ItemNightmareNewBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {
@@ -73,6 +46,17 @@ class NewViewHolder(val binding: ItemNightmareNewBinding, callback: OnItemClickV
 class FriendsViewHolder(val binding: ItemNightmareFriendsBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_nightmare_friends
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return FriendsViewHolder(
+                        ItemNightmareFriendsBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {
@@ -83,6 +67,17 @@ class FriendsViewHolder(val binding: ItemNightmareFriendsBinding, callback: OnIt
 class ItemViewHolder(val binding: ItemNightmareItemBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_nightmare_item
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return ItemViewHolder(
+                        ItemNightmareItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {
@@ -99,6 +94,17 @@ class ItemViewHolder(val binding: ItemNightmareItemBinding, callback: OnItemClic
 class AdViewHolder(val binding: ItemNightmareAdBinding, callback: OnItemClickViewHolderCallback) : ClickableViewHolder(binding.root, callback) {
     companion object {
         val ID = R.layout.item_nightmare_ad
+
+        fun addViewHolder(builderList: SparseArrayCompat<ViewHolderBuilder>, callback: OnItemClickViewHolderCallback) {
+            builderList.put(ID, object: ViewHolderBuilder{
+                override fun create(parent: ViewGroup): ru.elron.examplerecycleradapter.view.ViewHolder<*> {
+                    return AdViewHolder(
+                        ItemNightmareAdBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+                        callback
+                    )
+                }
+            })
+        }
     }
 
     override fun update(position: Int) {

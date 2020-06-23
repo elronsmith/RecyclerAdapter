@@ -8,20 +8,24 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions { jvmTarget = '1.8' }
+
     lintOptions {
         abortOnError true
     }
+
     dataBinding {
         enabled = true
     }
 
-    compileSdkVersion rootProject.ext.app_compileSdkVersion
+    compileSdkVersion app_compileSdkVersion
     defaultConfig {
         applicationId "ru.elron.examplerecycleradapter"
-        minSdkVersion rootProject.ext.app_minSdkVersion
-        targetSdkVersion rootProject.ext.app_targetSdkVersion
-        versionCode rootProject.ext.app_version_code
-        versionName rootProject.ext.app_version_name
+        minSdkVersion app_minSdkVersion
+        targetSdkVersion app_targetSdkVersion
+        versionCode app_version_code
+        versionName app_version_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -47,20 +51,22 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // UI
-    implementation rootProject.ext.deps.androidx.coreKtx
-    implementation rootProject.ext.deps.androidx.appcompat
-    implementation rootProject.ext.deps.androidx.constraintLayout
-    implementation rootProject.ext.deps.androidx.recyclerView
-    implementation rootProject.ext.deps.androidx.cardview
-    implementation rootProject.ext.deps.material
-    implementation rootProject.ext.deps.arch.extensions
-    implementation rootProject.ext.deps.arch.java8
-    // kotlin
-    implementation rootProject.ext.deps.kotlinJdk7
-    kapt rootProject.ext.deps.arch.compiler
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "com.google.android.material:material:1.1.0"
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Navigation
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:1.3.0"
 
     // tests
-    testImplementation rootProject.ext.deps.test.junit
-    androidTestImplementation rootProject.ext.deps.test.ext
-    androidTestImplementation rootProject.ext.deps.test.espresso
+    testImplementation "junit:junit:4.12"
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
 }

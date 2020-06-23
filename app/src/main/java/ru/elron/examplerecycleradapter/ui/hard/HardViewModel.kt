@@ -1,10 +1,15 @@
 package ru.elron.examplerecycleradapter.ui.hard
 
 import android.app.Application
+import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.savedstate.SavedStateRegistryOwner
 import ru.elron.examplerecycleradapter.R
 import ru.elron.examplerecycleradapter.view.AObservable
 import ru.elron.examplerecycleradapter.view.OnItemClickViewHolderCallback
@@ -16,9 +21,9 @@ class HardViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
 
     lateinit var fakeMessages: FakeMessages
 
-    constructor(application: Application) : super(application) {
-        addMessageViewHolder(adapter.holderBuilderArray, this)
-        addSystemMessageViewHolder(adapter.holderBuilderArray, this)
+    constructor(application: Application, state: SavedStateHandle) : super(application) {
+        MessageViewHolder.addViewHolder(adapter.holderBuilderArray, this)
+        SystemMessageViewHolder.addViewHolder(adapter.holderBuilderArray, this)
 
         val nameArray = application.resources.getStringArray(R.array.names)
         val messageArray = application.resources.getStringArray(R.array.messages)
@@ -31,6 +36,21 @@ class HardViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
     }
 
     override fun getObservable(position: Int): AObservable = adapter.observableList[position]
+}
+
+class HardViewModelFactory(
+    private val application: Application,
+    private val owner: SavedStateRegistryOwner,
+    private val defaultArgs: Bundle? = null
+) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel?> create(
+        key: String,
+        modelClass: Class<T>,
+        handle: SavedStateHandle
+    ): T {
+        return HardViewModel(application, handle) as T
+    }
 }
 
 /**

@@ -1,9 +1,14 @@
 package ru.elron.examplerecycleradapter.ui.nightmare
 
 import android.app.Application
+import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.savedstate.SavedStateRegistryOwner
 import ru.elron.examplerecycleradapter.R
 import ru.elron.examplerecycleradapter.view.AObservable
 import ru.elron.examplerecycleradapter.view.OnItemClickViewHolderCallback
@@ -12,11 +17,11 @@ import ru.elron.examplerecycleradapter.view.RecyclerAdapter
 class NightmareViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
     val adapter = RecyclerAdapter<NightmareObservable>()
 
-    constructor(application: Application) : super(application) {
-        addNewViewHolder(adapter.holderBuilderArray, this)
-        addFriendsViewHolder(adapter.holderBuilderArray, this)
-        addItemViewHolder(adapter.holderBuilderArray, this)
-        addAdViewHolder(adapter.holderBuilderArray, this)
+    constructor(application: Application, state: SavedStateHandle) : super(application) {
+        NewViewHolder.addViewHolder(adapter.holderBuilderArray, this)
+        FriendsViewHolder.addViewHolder(adapter.holderBuilderArray, this)
+        ItemViewHolder.addViewHolder(adapter.holderBuilderArray, this)
+        AdViewHolder.addViewHolder(adapter.holderBuilderArray, this)
 
         adapter.observableList.add(NightmareObservable.obtainNew())
         adapter.observableList.add(NightmareObservable.obtainFriends())
@@ -62,4 +67,19 @@ class NightmareViewModel : AndroidViewModel, OnItemClickViewHolderCallback {
     }
 
     override fun getObservable(position: Int): AObservable = adapter.observableList[position]
+}
+
+class NightmareViewModelFactory(
+    private val application: Application,
+    private val owner: SavedStateRegistryOwner,
+    private val defaultArgs: Bundle? = null
+) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel?> create(
+        key: String,
+        modelClass: Class<T>,
+        handle: SavedStateHandle
+    ): T {
+        return NightmareViewModel(application, handle) as T
+    }
 }
