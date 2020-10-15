@@ -9,7 +9,8 @@ private val TAB_TITLES_ARRAY = arrayOf(
     "EASY",
     "MEDIUM",
     "HARD",
-    "HIGHTMARE"
+    "NIGHTMARE",
+    "ULTRA-NIGHTMARE"
 )
 
 /**

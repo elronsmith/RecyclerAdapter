@@ -2,8 +2,11 @@
     <string name="app_name">RecyclerAdapter</string>
     <string name="description_easy">Обычный список с OnClickListener</string>
     <string name="description_medium">Обычный список с OnClickListener, OnLongItemClickListener и добавление/удаление элемента</string>
+    <string name="description_medium_empty">Пустой список</string>
     <string name="description_hard">Список из одного Observable и 2 разных ViewHolder</string>
     <string name="description_nightmare">Разные ViewHolder с разными кнопками внутри, OnLongClickListener, удалить/добавить элемент</string>
+    <string name="description_ultra_nightmare_swype_to_delete">Свайп вправо чтобы удалить</string>
+    <string name="description_ultra_nightmare_long_click_to_move">LongClick чтобы перенести вверх/вниз</string>
     <string-array name="names">
         <item>Rebekah Howe</item>
         <item>Clement Nguyen</item>

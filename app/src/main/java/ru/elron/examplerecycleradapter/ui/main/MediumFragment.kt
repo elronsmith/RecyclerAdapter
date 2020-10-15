@@ -20,6 +20,10 @@ class MediumFragment : Fragment() {
 
         binding.openButton.setOnClickListener { activity?.startActivity(Intent(activity, MediumActivity::class.java)) }
 
+        binding.showEmptyButton.setOnClickListener {
+
+        }
+
         return binding.root
     }
 
