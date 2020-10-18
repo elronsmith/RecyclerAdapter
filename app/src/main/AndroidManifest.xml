@@ -3,6 +3,7 @@
     package="ru.elron.examplerecycleradapter">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,19 +17,31 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".ui.easy.EasyActivity"/>
+            android:name=".ui.easy.EasyActivity"
+            android:label="EasyActivity" />
         <activity
-            android:name=".ui.medium.MediumActivity"/>
+            android:name=".ui.medium.MediumActivity"
+            android:label="MediumActivity" />
         <activity
-            android:name=".ui.hard.HardActivity"/>
+            android:name=".ui.medium.empty.EmptyActivity"
+            android:label="EmptyActivity" />
         <activity
-            android:name=".ui.nightmare.NightmareActivity"/>
+            android:name=".ui.hard.HardActivity"
+            android:label="HardActivity" />
+        <activity
+            android:name=".ui.nightmare.NightmareActivity"
+            android:label="NightmareActivity" />
+        <activity
+            android:name=".ui.ultranightmare.swype.SwypeActivity"
+            android:label="SwypeActivity" />
+        <activity
+            android:name=".ui.ultranightmare.longclick.LongClickActivity"
+            android:label="LongClickActivity" />
 
     </application>
 </manifest>

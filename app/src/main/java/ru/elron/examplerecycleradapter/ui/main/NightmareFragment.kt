@@ -9,9 +9,6 @@ import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainNightmareBinding
 import ru.elron.examplerecycleradapter.ui.nightmare.NightmareActivity
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class NightmareFragment : Fragment() {
     lateinit var binding: FragmentMainNightmareBinding
 
@@ -22,5 +19,4 @@ class NightmareFragment : Fragment() {
 
         return binding.root
     }
-
 }

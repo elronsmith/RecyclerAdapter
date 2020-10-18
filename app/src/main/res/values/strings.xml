@@ -42,4 +42,6 @@
         <item>Удалить</item>
     </string-array>
 
+    <string name="empty">Пусто</string>
+
 </resources>

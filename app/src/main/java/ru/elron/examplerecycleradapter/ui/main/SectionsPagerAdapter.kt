@@ -24,7 +24,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             0 -> EasyFragment()
             1 -> MediumFragment()
             2 -> HardFragment()
-            else -> NightmareFragment()
+            3 -> NightmareFragment()
+            else -> UltraNightmareFragment()
         }
 
     override fun getPageTitle(position: Int): CharSequence? {

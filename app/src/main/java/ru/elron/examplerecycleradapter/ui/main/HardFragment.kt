@@ -9,9 +9,6 @@ import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainHardBinding
 import ru.elron.examplerecycleradapter.ui.hard.HardActivity
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class HardFragment : Fragment() {
     lateinit var binding: FragmentMainHardBinding
 
@@ -22,5 +19,4 @@ class HardFragment : Fragment() {
 
         return binding.root
     }
-
 }

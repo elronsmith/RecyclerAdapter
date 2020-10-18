@@ -9,9 +9,6 @@ import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainEasyBinding
 import ru.elron.examplerecycleradapter.ui.easy.EasyActivity
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class EasyFragment : Fragment() {
     lateinit var binding: FragmentMainEasyBinding
 
@@ -22,5 +19,4 @@ class EasyFragment : Fragment() {
 
         return binding.root
     }
-
 }

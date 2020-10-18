@@ -1,21 +1,32 @@
-package ru.elron.examplerecycleradapter.ui.nightmare
+package ru.elron.examplerecycleradapter.ui.ultranightmare.swype
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.elron.examplerecycleradapter.databinding.ActivityNightmareBinding
+import ru.elron.examplerecycleradapter.databinding.ActivityUltraNightmareSwypeBinding
 
-class NightmareActivity : AppCompatActivity() {
-    lateinit var binding: ActivityNightmareBinding
-    val viewModel: NightmareViewModel by viewModels {
-        NightmareViewModelFactory(application, this)
+/**
+ * swipe-to-dismiss
+ */
+class SwypeActivity : AppCompatActivity() {
+    companion object {
+        fun start(activity: FragmentActivity) {
+            activity.startActivity(Intent(activity, SwypeActivity::class.java))
+        }
+    }
+
+    lateinit var binding: ActivityUltraNightmareSwypeBinding
+    val viewModel: SwypeViewModel by viewModels {
+        SwypeViewModelFactory(application, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNightmareBinding.inflate(layoutInflater)
+        binding = ActivityUltraNightmareSwypeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -23,6 +34,11 @@ class NightmareActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.setupDragAndDrop(binding.recyclerView)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

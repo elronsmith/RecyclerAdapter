@@ -5,6 +5,8 @@ import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import kotlin.collections.ArrayList
 
 val LIST_EMPTY = listOf<AObservable>()
 
@@ -62,4 +64,14 @@ open class RecyclerAdapter<T: AObservable>(
         return holderBuilderArray.get(viewType)!!.create(parent)
     }
     override fun getItemCount(): Int = observableList.size
+
+    fun moveItem(fromPosition: Int, toPosition: Int) {
+        Collections.swap(observableList, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    fun removeItem(position: Int) {
+        observableList.removeAt(position)
+        notifyItemRemoved(position)
+    }
 }

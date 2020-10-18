@@ -1,21 +1,32 @@
-package ru.elron.examplerecycleradapter.ui.nightmare
+package ru.elron.examplerecycleradapter.ui.ultranightmare.longclick
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.elron.examplerecycleradapter.databinding.ActivityNightmareBinding
+import ru.elron.examplerecycleradapter.databinding.ActivityUltraNightmareMoveBinding
 
-class NightmareActivity : AppCompatActivity() {
-    lateinit var binding: ActivityNightmareBinding
-    val viewModel: NightmareViewModel by viewModels {
-        NightmareViewModelFactory(application, this)
+/**
+ * drag & drop
+ */
+class LongClickActivity : AppCompatActivity() {
+    companion object {
+        fun start(activity: FragmentActivity) {
+            activity.startActivity(Intent(activity, LongClickActivity::class.java))
+        }
+    }
+
+    lateinit var binding: ActivityUltraNightmareMoveBinding
+    val viewModel: LongClickViewModel by viewModels {
+        LongClickViewModelFactory(application, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNightmareBinding.inflate(layoutInflater)
+        binding = ActivityUltraNightmareMoveBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -23,6 +34,11 @@ class NightmareActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.setupDragAndDrop(binding.recyclerView)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

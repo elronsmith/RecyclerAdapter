@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainUltraNightmareBinding
+import ru.elron.examplerecycleradapter.ui.ultranightmare.swype.SwypeActivity
+import ru.elron.examplerecycleradapter.ui.ultranightmare.longclick.LongClickActivity
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class UltraNightmareFragment : Fragment() {
     lateinit var binding: FragmentMainUltraNightmareBinding
 
@@ -17,14 +16,13 @@ class UltraNightmareFragment : Fragment() {
         binding = FragmentMainUltraNightmareBinding.inflate(inflater)
 
         binding.swypeToDeleteButton.setOnClickListener {
-
+            SwypeActivity.start(requireActivity())
         }
 
         binding.longClickToMoveButton.setOnClickListener {
-
+            LongClickActivity.start(requireActivity())
         }
 
         return binding.root
     }
-
 }

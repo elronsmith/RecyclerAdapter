@@ -8,23 +8,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainMediumBinding
 import ru.elron.examplerecycleradapter.ui.medium.MediumActivity
+import ru.elron.examplerecycleradapter.ui.medium.empty.EmptyActivity
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class MediumFragment : Fragment() {
     lateinit var binding: FragmentMainMediumBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentMainMediumBinding.inflate(inflater)
 
-        binding.openButton.setOnClickListener { activity?.startActivity(Intent(activity, MediumActivity::class.java)) }
+        binding.openButton.setOnClickListener {
+            activity?.startActivity(Intent(activity, MediumActivity::class.java))
+        }
 
         binding.showEmptyButton.setOnClickListener {
-
+            activity?.startActivity(Intent(activity, EmptyActivity::class.java))
         }
 
         return binding.root
     }
-
 }
