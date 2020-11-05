@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">RecyclerAdapter</string>
     <string name="description_easy">Обычный список с OnClickListener</string>
+    <string name="description_easy_horizontal">Горизонтальный cписок с OnClickListener</string>
     <string name="description_medium">Обычный список с OnClickListener, OnLongItemClickListener и добавление/удаление элемента</string>
     <string name="description_medium_empty">Пустой список</string>
     <string name="description_medium_diffutil">DiffUtil. Сначала отображаем неотсортированный список, потом отсортированый</string>

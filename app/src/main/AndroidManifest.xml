@@ -25,6 +25,9 @@
             android:name=".ui.easy.EasyActivity"
             android:label="EasyActivity" />
         <activity
+            android:name=".ui.easy.horizontal.HorizontalActivity"
+            android:label="HorizontalActivity" />
+        <activity
             android:name=".ui.medium.MediumActivity"
             android:label="MediumActivity" />
         <activity

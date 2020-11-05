@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainEasyBinding
 import ru.elron.examplerecycleradapter.ui.easy.EasyActivity
+import ru.elron.examplerecycleradapter.ui.easy.horizontal.HorizontalActivity
 
 class EasyFragment : Fragment() {
     lateinit var binding: FragmentMainEasyBinding
@@ -16,6 +17,8 @@ class EasyFragment : Fragment() {
         binding = FragmentMainEasyBinding.inflate(inflater)
 
         binding.openButton.setOnClickListener { activity?.startActivity(Intent(activity, EasyActivity::class.java)) }
+
+        binding.horizontalButton.setOnClickListener { activity?.startActivity(Intent(activity, HorizontalActivity::class.java)) }
 
         return binding.root
     }
