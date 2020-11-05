@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.elron.examplerecycleradapter.databinding.FragmentMainMediumBinding
 import ru.elron.examplerecycleradapter.ui.medium.MediumActivity
+import ru.elron.examplerecycleradapter.ui.medium.diffutils.DiffutilsActivity
 import ru.elron.examplerecycleradapter.ui.medium.empty.EmptyActivity
 
 class MediumFragment : Fragment() {
@@ -26,6 +27,10 @@ class MediumFragment : Fragment() {
 
         binding.showEmptyButton.setOnClickListener {
             activity?.startActivity(Intent(activity, EmptyActivity::class.java))
+        }
+
+        binding.showDiffutilButton.setOnClickListener {
+            activity?.startActivity(Intent(activity, DiffutilsActivity::class.java))
         }
 
         return binding.root

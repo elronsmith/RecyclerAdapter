@@ -31,6 +31,9 @@
             android:name=".ui.medium.empty.EmptyActivity"
             android:label="EmptyActivity" />
         <activity
+            android:name=".ui.medium.diffutils.DiffutilsActivity"
+            android:label="DiffutilsActivity" />
+        <activity
             android:name=".ui.hard.HardActivity"
             android:label="HardActivity" />
         <activity
