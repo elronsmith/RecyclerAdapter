@@ -6,6 +6,7 @@
     <string name="description_medium_empty">Пустой список</string>
     <string name="description_medium_diffutil">DiffUtil. Сначала отображаем неотсортированный список, потом отсортированый</string>
     <string name="description_hard">Список из одного Observable и 2 разных ViewHolder</string>
+    <string name="description_hard_pagination">Пагинация, страницы будут подгружаться если спуститься в конец списка</string>
     <string name="description_nightmare">Разные ViewHolder с разными кнопками внутри, OnLongClickListener, удалить/добавить элемент</string>
     <string name="description_ultra_nightmare_swype_to_delete">Свайп вправо чтобы удалить</string>
     <string name="description_ultra_nightmare_long_click_to_move">LongClick чтобы перенести вверх/вниз</string>

@@ -40,6 +40,9 @@
             android:name=".ui.hard.HardActivity"
             android:label="HardActivity" />
         <activity
+            android:name=".ui.hard.pagination.PaginationActivity"
+            android:label="PaginationActivity" />
+        <activity
             android:name=".ui.nightmare.NightmareActivity"
             android:label="NightmareActivity" />
         <activity
