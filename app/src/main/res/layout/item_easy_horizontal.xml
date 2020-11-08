@@ -33,13 +33,14 @@
 
         <TextView
             android:id="@+id/textView"
-            style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:lines="2"
             android:text="Long application name"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="@color/primaryText"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintStart_toStartOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />

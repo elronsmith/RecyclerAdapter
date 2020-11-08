@@ -28,12 +28,12 @@
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_margin="4dp"
-                    android:tint="#880000FF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/vd_account_circle" />
+                    app:srcCompat="@drawable/vd_account_circle"
+                    app:tint="#880000FF" />
 
                 <ImageView
                     android:id="@+id/itemPictureImageView"
@@ -41,14 +41,14 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:padding="8dp"
-                    android:tint="#888888"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/vd_more" />
+                    app:srcCompat="@drawable/vd_more"
+                    app:tint="#888888" />
 
                 <TextView
                     android:id="@+id/nameTextView"
@@ -56,9 +56,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
                     android:text="Rebekah Howe"
                     android:textColor="#5281B9"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/itemPictureImageView"
                     app:layout_constraintStart_toEndOf="@+id/itemAvatarImageView"
                     app:layout_constraintTop_toTopOf="@+id/itemAvatarImageView" />
@@ -69,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
                     android:text="Сегодня"
                     android:textColor="#B3B4B6"
                     app:layout_constraintEnd_toStartOf="@+id/itemPictureImageView"
@@ -83,6 +84,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
                     android:ellipsize="end"
                     android:maxLines="4"
                     android:text="Or kind rest bred with am shed then. In raptures building an bringing be."
@@ -99,12 +101,12 @@
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:padding="12dp"
-                    android:tint="#888888"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.25"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/messageTextView"
-                    app:srcCompat="@drawable/vd_favorite" />
+                    app:srcCompat="@drawable/vd_favorite"
+                    app:tint="#888888" />
 
                 <ImageView
                     android:id="@+id/itemCommentImageView"
@@ -113,12 +115,12 @@
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:padding="12dp"
-                    android:tint="#888888"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.50"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/messageTextView"
-                    app:srcCompat="@drawable/vd_comment" />
+                    app:srcCompat="@drawable/vd_comment"
+                    app:tint="#888888" />
 
                 <ImageView
                     android:id="@+id/itemRepostImageView"
@@ -127,12 +129,12 @@
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:padding="12dp"
-                    android:tint="#888888"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.75"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/messageTextView"
-                    app:srcCompat="@drawable/vd_repost" />
+                    app:srcCompat="@drawable/vd_repost"
+                    app:tint="#888888" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

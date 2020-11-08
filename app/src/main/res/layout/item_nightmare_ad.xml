@@ -28,7 +28,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="Реклама"
-                    android:textColor="#B3B4B6"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:textColor="@color/secondaryText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -38,8 +39,6 @@
                     android:layout_width="0dp"
                     android:layout_height="256dp"
                     android:layout_marginTop="8dp"
-                    android:background="#880000FF"
-                    android:tint="#FFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

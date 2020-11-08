@@ -14,9 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        binding.viewPager.adapter = sectionsPagerAdapter
+        binding.viewPager.adapter = SectionsPagerAdapter(supportFragmentManager)
         binding.tabs.setupWithViewPager(binding.viewPager)
-
     }
 }
