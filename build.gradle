@@ -1,25 +1,24 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     // app
-    ext.app_compileSdkVersion           = 29
-    ext.app_buildToolsVersion           = "29.0.3"
+    ext.app_compileSdkVersion           = 33
     ext.app_minSdkVersion               = 21
-    ext.app_targetSdkVersion            = 29
+    ext.app_targetSdkVersion            = 33
     // version
     ext.app_version_code                = 1
     ext.app_version_name                = "1.0.0"
     // libs
-    ext.kotlin_version                  = "1.4.10"
-    ext.lifecycle_version               = "2.2.0"
-    ext.navigation_version              = "2.3.1"
+    ext.kotlin_version                  = "1.7.21"
+    ext.lifecycle_version               = "2.5.1"
+    ext.navigation_version              = "2.5.3"
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "com.android.tools.build:gradle:7.4.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -29,7 +28,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
